@@ -8,12 +8,21 @@ document.addEventListener('keydown', function(e) {
 });
 
 loop = setInterval(function () {
-    pipePosition = document.querySelector('.obstacle').offsetLeft;
-    characterPosition = window.getComputedStyle(
+    obstaclePosition = document.querySelector('.obstacle').offsetLeft;
+    characterPosition = +window.getComputedStyle(
         document.querySelector('.character')).bottom.replace('px', '');
-
-    if (pipePosition < 120 && pipePosition > 10 && characterPosition < 80) {
+       
+    console.log(characterPosition);
+    if (obstaclePosition <= 120 && obstaclePosition > 0 && characterPosition < 80) {
         document.querySelector('.obstacle').style.animation = 'none';
-        document.querySelector('.obstacle').style.left = '${pipePosition}px';
+        document.querySelector('.obstacle').style.left = '${obstaclePosition}px';
+
+        document.querySelector('.character').style.animation = 'none';
+        document.querySelector('.character').style.bottom = '${characterPosition}px';
+        document.querySelector('.character').src = 'images/game-over.png';
+        document.querySelector('.character').style.width = '75px';
+        document.querySelector('.character').style.marginLeft = '50px';
+
+        clearInterval(loop);
     }
 }, 10);

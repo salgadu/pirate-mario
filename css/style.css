@@ -5,12 +5,20 @@
 }
 
 .screen_limit{
-    width: 80%;
-    height: 500px;
-    border: 1px solid black;
+    width: 100%;
+    height: 600px;
+    border-bottom: 30px solid green;
     margin: 0 auto;
     position: relative;
     overflow: hidden;
+    background: linear-gradient(#87CEEB, #E0F6FF);
+}
+
+.clouds{
+    margin-top: 20px;
+    width: 550px;
+    position: absolute;
+    animation: clouds-animation 30s linear infinite;
 }
 
 .obstacle{
@@ -33,6 +41,15 @@
 @keyframes obstacle-animation{
     from{
        right: -85px;
+    }
+    to{
+        right: 100%;
+    }
+}
+    
+@keyframes clouds-animation{
+    from{
+       right: -550px;
     }
     to{
         right: 100%;
